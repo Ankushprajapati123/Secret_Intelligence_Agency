@@ -1,0 +1,86 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <style>
+        body {
+            background-color: #ffefd5;
+            font-family: Arial, sans-serif;
+            color: green;
+            margin: 0;
+            padding: 0;
+        }
+        table.outer-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        /* table.outer-table th.sidebar {
+            width: 200px;
+            vertical-align: top;
+            border-right: 2px solid green;
+            padding: 15px;
+        } */
+        table.data-table {
+            width: 100%;
+            max-width: 1000px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #f9fff9;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        table.data-table th, table.data-table td {
+            border: 1px solid green;
+            padding: 10px 12px;
+            text-align: left;
+        }
+        table.data-table th {
+            background-color: #c8e6c9;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        table.data-table tr:nth-child(even) {
+            background-color: #e6f2e6;
+        }
+        table.data-table tr:hover {
+            background-color: #d0e7d0;
+        }
+    </style>
+</head>
+<body>
+
+{% include "heading.html" %}
+
+<table class="outer-table">
+    <tr>
+        <th class="sidebar">{% include "sideindex_defence.html" %}</th>
+        <th>
+            <table class="data-table" align="center">
+                <thead>
+                    <tr>
+                        <th>Agent ID</th>
+                        <th>Case ID</th>
+                        <th>Case Name</th>
+                        <th>Evidence</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in data %}
+                    <tr>
+                        <td>{{ x.agent_id }}</td>
+                        <td>{{ x.case_id }}</td>
+                        <td>{{ x.case_name }}</td>
+                        <td>{{ x.evidence }}</td>
+                        <td>{{ x.status }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </th>
+    </tr>
+</table>
+
+</body>
+</html>

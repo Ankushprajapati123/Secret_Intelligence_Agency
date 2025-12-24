@@ -1,0 +1,130 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Secret Intelligence Service</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background-color: #ffefd5;
+        }
+
+        .main-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image:
+                linear-gradient(to right, rgb(1, 43, 25) 45%, rgba(3, 87, 62, 0.6) 70%, transparent),
+                url("{% static 'images/six_6.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            color: white;
+            padding: 60px;
+            box-sizing: border-box;
+        }
+
+        .left-text-and-buttons {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            width: 100%;
+            gap: 80px; /* Increased gap between text and buttons */
+        }
+
+        .left-text {
+            max-width: 650px;
+        }
+
+        .left-text h1 {
+            font-size: 48px;
+            margin-bottom: 30px;
+            color: #a2f4d4;
+        }
+
+        .left-text h3 {
+            font-size: 20px;
+            font-weight: normal;
+            line-height: 1.7;
+        }
+
+        .top-buttons {
+            display: flex;
+            flex-direction: row;
+            gap: 40px; /* Increased gap between buttons */
+            margin-top: 80px; 
+        }
+
+        .top-buttons button {
+            padding: 20px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        .top-buttons .success {
+            background-color: rgb(1, 73, 3);
+        }
+
+        .top-buttons .jobs {
+            background-color: rgb(1, 73, 3);
+        }
+
+        .top-buttons button:hover {
+            background-color: rgb(25, 155, 8);
+            color: cornsilk;
+            font-weight: bold;
+        }
+
+        .top-buttons a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    {% include "heading.html" %}
+
+    <table>
+        <tr>
+            <td width="200">
+                {% include "homeindex.html" %}
+            </td>
+        </tr>
+    </table>
+
+    <div class="main-container">
+        <div class="left-text-and-buttons">
+            <div class="left-text">
+                <h1>Secret Intelligence Service</h1>
+                <h3>
+                    The Secret Intelligence Agency has always used undercover<br>
+                    agents to solve complex cases and dismantle criminal organizations.<br><br>
+                    We are conceptualizing this software as a solution so that<br>
+                    Secret Intelligence Agencies and their agents can communicate<br>
+                    through this platform for the exchange of evidence in a secure way.
+                </h3>
+            </div>
+
+            <div class="top-buttons">
+                <a href="/stories/">
+                    <button class="success">Success Stories</button>
+                </a>
+                <a href="/find_jobs/">
+                    <button class="jobs">Find Jobs</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

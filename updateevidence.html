@@ -1,0 +1,43 @@
+
+        {% load staticfiles %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<body bgcolor="#ffefd5">
+{% include "heading.html" %}
+<font color="green">
+
+  <table>
+      <tr>
+      <form action="//" method="post">
+        {% csrf_token %}
+          <td width="200">{% include "sideindex_ageent.html" %}</td>
+           <td width="1000"><table align="center" border="1">
+                <tr><th>agend id</th>
+                 <th>case id</th>
+                 <th>case name</th>
+                 <th>evidence</th>
+                 <th>status</th>
+                    <th>update</th>
+                </tr>
+               <tr>{% for x in data %}
+                    <tr>
+                 <th>{{ x.agent_id }}</th>
+                 <th>{{ x.case_id }}</th>
+                 <th>{{x.case_name}}</th>
+                 <th>{{x.evidence}}</th>
+                 <th>{{x.status}}</th>
+                    <th><a href="/upevidence{{ x.id }}/">Update</a> </th>
+                    </tr>
+                {% endfor %}
+
+            </table></td>
+      </form>
+        </tr>
+
+</table>
+</font>
+</body>
+</html>
+</tr>

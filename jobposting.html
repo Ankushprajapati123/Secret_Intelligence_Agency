@@ -1,0 +1,115 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post Job</title>
+    <style>
+        body {
+            background-color: #ffefd5;
+            font-family: Arial, sans-serif;
+            color: green;
+        }
+        .container {
+            display: flex;
+            padding: 20px;
+        }
+        .sidebar {
+            width: 200px;
+        }
+        .content {
+            flex: 1;
+            padding-left: 40px;
+        }
+        .form-table {
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+            border-collapse: separate;
+            border-spacing: 10px;
+        }
+        th {
+            text-align: left;
+            padding: 5px;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: darkgreen;
+        }
+        h1.message {
+            text-align: center;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    {% include "heading.html" %}
+    
+    <div class="container">
+        <div class="sidebar">
+            {% include "sideindex.html" %}
+        </div>
+        
+        <div class="content">
+            <form action="/postsaved/" method="post">
+                {% csrf_token %}
+                <table class="form-table">
+                    <tr>
+                        <th>Job</th>
+                        <th><input type="text" name="job" required></th>
+                    </tr>
+                    <tr>
+                        <th>Title</th>
+                        <th><input type="text" name="name" required></th>
+                    </tr>
+                    <tr>
+                        <th>Qualification</th>
+                        <th><input type="text" name="qualification" required></th>
+                    </tr>
+                    <tr>
+                        <th>Percentage</th>
+                        <th><input type="number" name="percentage" required></th>
+                    </tr>
+                    <tr>
+                        <th>Experience</th>
+                        <th><input type="text" name="exp" required></th>
+                    </tr>
+                    <tr>
+                        <th>Last Date</th>
+                        <th><input type="date" name="lastdate" required></th>
+                    </tr>
+                    <tr>
+                        <th>Location</th>
+                        <th><input type="text" name="location" required></th>
+                    </tr>
+                    <tr>
+                        <th>Salary</th>
+                        <th><input type="number" name="salary" required></th>
+                    </tr>
+                    <tr>
+                        <th colspan="2" style="text-align: center;">
+                            <input type="submit" value="Post">
+                        </th>
+                    </tr>
+                </table>
+            </form>
+            <h1 class="message">{{ message }}</h1>
+        </div>
+    </div>
+</body>
+</html>

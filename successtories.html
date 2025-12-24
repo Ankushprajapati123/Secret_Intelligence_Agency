@@ -1,0 +1,81 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Success Stories</title>
+    <style>
+        body {
+            background-color: #ffefd5;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            padding: 20px;
+        }
+        .sidebar {
+            width: 200px;
+        }
+        .content {
+            flex: 1;
+            padding-left: 40px;
+        }
+        table.form-table {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            border-collapse: separate;
+            border-spacing: 10px;
+        }
+        th {
+            text-align: left;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    {% include "heading.html" %}
+
+    <form action="/succestories/" method="post">
+        {% csrf_token %}
+        <div class="container">
+            <div class="sidebar">
+                {% include "sideindex.html" %}
+            </div>
+            <div class="content">
+                <table class="form-table">
+                    <tr>
+                        <th>Story Title:</th>
+                        <th><input type="text" name="t1" required></th>
+                    </tr>
+                    <tr>
+                        <th>Description:</th>
+                        <th><input type="text" name="t2" required></th>
+                    </tr>
+                    <tr>
+                        <th colspan="2" style="text-align: center;">
+                            <input type="submit" value="Add">
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

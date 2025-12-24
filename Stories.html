@@ -1,0 +1,68 @@
+<!-- templates/base.html -->
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Stories Dashboard{% endblock %}</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: #ffefd5;
+        }
+
+        .story-buttons {
+            display: flex;
+            flex-direction: column;  
+            gap: 10px;           
+            flex-wrap: wrap;     
+            width: 80px;
+            margin-left: 40px;
+            margin-top: 40px;
+        }
+
+        .story-buttons a {
+            padding: 10px 20px;
+            background-color: white;
+            border: 2px solid green;
+            color: green;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            text-align: center;
+            white-space: nowrap;  
+        }
+
+        .story-buttons a:hover {
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    {% include "heading.html" %}
+
+    <div class="container">
+        <div class="left-panel">
+            <div class="sidebar">
+                {% include "homeindex.html" %}
+            </div>
+
+            <div class="story-buttons">
+                <a href="/story1/">Story 1</a>
+                <a href="/story2/">Story 2</a>
+                <a href="/all stories/">All Stories</a>
+            </div>
+        </div>
+
+        <div class="main-content">
+            {% block content %}
+                <!-- Main content will be injected here -->
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>

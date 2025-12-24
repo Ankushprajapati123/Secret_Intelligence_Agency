@@ -1,0 +1,90 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Story List</title>
+    <style>
+        body {
+            background-color: #ffefd5;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            padding: 20px;
+            color: green;
+        }
+
+        .sidebar {
+            width: 200px;
+            margin-right: 20px;
+        }
+
+        .content {
+            flex-grow: 1;
+        }
+
+        table {
+            width: 1000px;
+            border-collapse: separate;
+            border-spacing: 0;
+            text-align: center;
+            background-color: #fff;
+            border: 2px solid green;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 128, 0, 0.2);
+        }
+
+        th, td {
+            border-bottom: 1px solid green;
+            padding: 12px;
+        }
+
+        th {
+            background-color: #90ee90;
+            color: darkgreen;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f0fff0;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+
+    {% include "heading.html" %}
+    {% include "Stories.html" %}
+
+    <div class="container">
+        <div class="sidebar">
+            {% include "homeindex.html" %}
+        </div>
+
+        <div class="content">
+            <table>
+                <tr>
+                    <th>Id No</th>
+                    <th>Story Title</th>
+                    <th>Description</th>
+                </tr>
+                {% for x in data %}
+                <tr>
+                    <td>{{ x.id }}</td>
+                    <td>{{ x.story_title }}</td>
+                    <td>{{ x.Description }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

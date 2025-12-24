@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Secret Intelligence Agency{% endblock %}</title>
+    <style>
+        body {
+            margin: 0;
+            padding-top: 75px;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            height: 60px;
+        }
+
+        .navbar img {
+            height: 60px;
+            width: 100px;
+            margin-left: 50px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            margin-right: 80px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #050505;
+            font-weight: bold;
+            font-size: 20px;
+            padding: 8px 15px;
+            /* ransition: background-color 0.3s ease; */
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            background-color: #329ae0d5;
+        }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <img src="{% static 'images/CBI_LOgo.png' %}" alt="CBI Logo" />
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/adminlogin/">Admin</a>
+            <a href="/agent_login/">Agents</a>
+            <a href="/ministry/">Ministry</a>
+            <a href="/about/">About</a>
+        </div>
+    </div>
+
+    {% block content %}{% endblock %}
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

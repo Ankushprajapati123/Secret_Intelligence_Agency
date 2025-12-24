@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About & Contact - Secret Intelligence Agency</title>
+    <style>
+        body {
+            background-color: #ffefd5;
+            color: green;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            border-bottom: 2px solid green;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        table {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+        td:first-child {
+            width: 300px;
+            vertical-align: top;
+            font-weight: bold;
+            padding-right: 10px;
+        }
+        .content {
+            text-align: justify;
+        }
+        a {
+            color: green;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    {% include "heading.html" %}
+
+    <!-- About Us Section -->
+    <section>
+        <h2>About Us</h2>
+        <table>
+            <tr>
+                <td>Overview:</td>
+                <td class="content">
+                    The Secret Intelligence Agency has always used undercover agents to solve complex cases and dismantle criminal organizations.<br>
+                    Our mission is to provide secure communication channels and tools for agents to exchange critical evidence and information safely.<br>
+                    This software aims to facilitate seamless, encrypted communication between agents, enhancing operational efficiency and security.<br>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section>
+        <h2>Contact Us</h2>
+        <table>
+            <tr>
+                <td>Send us E-mail:</td>
+                <td><a href="mailto:swamyk@eth.net">swamyk@eth.net</a></td>
+            </tr>
+            <tr>
+                <td>Phone:</td>
+                <td>+91-1234567890</td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td>123 Intelligence Lane, Secret City, India</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="content" style="padding-top:20px;">
+                    We are here to assist you. Feel free to contact us for any queries or support related to our software.
+                    Your privacy and security are our top priorities.
+                </td>
+            </tr>
+        </table>
+    </section>
+
+</body>
+</html>

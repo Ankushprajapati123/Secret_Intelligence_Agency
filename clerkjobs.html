@@ -1,0 +1,74 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Listings</title>
+    <style>
+        body {
+            background-color: #ffefd5;
+            font-family: Arial, sans-serif;
+            color: green;
+            margin: 0;
+            padding: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table table {
+            width: 90%;
+            margin: 30px auto;
+            /* border: 2px solid green; */
+            background-color: #f8fff8;
+            border-radius: 8px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            /* border: 1px solid #999; */
+            font-size: 15px;
+        }
+        th {
+            background-color: #c1f0c1;
+        }
+    </style>
+</head>
+<body>
+
+{% include "heading.html" %}
+
+<table>
+    <tr>
+        <td width="200">{% include "homeindex.html" %}</td>
+        <td width="1000">
+            <table>
+                <tr>
+                    <th>Job</th>
+                    <th>Title</th>
+                    <th>Qualification</th>
+                    <th>Percentage</th>
+                    <th>Experience</th>
+                    <th>Location</th>
+                    <th>Salary</th>
+                </tr>
+                {% for x in data %}
+                    {% if x.Job == "clerk" %}
+                        <tr>
+                            <td>{{ x.Job }}</td>
+                            <td>{{ x.Title }}</td>
+                            <td>{{ x.Qualification }}</td>
+                            <td>{{ x.Percentage }}</td>
+                            <td>{{ x.Experience }}</td>
+                            <td>{{ x.Location }}</td>
+                            <td>{{ x.Salary }}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

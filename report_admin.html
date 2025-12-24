@@ -1,0 +1,79 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background-color: #ffefd5;
+            color: green;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        table {
+            border-collapse: collapse;
+        }
+
+        table[border="1"] {
+            border: 1px solid green;
+            width: 100%;
+            max-width: 1000px;
+            margin: 20px auto;
+            background-color: #f9fff9;
+        }
+        table[border="1"] th {
+            background-color: #c8e6c9;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        table[border="1"] tr:nth-child(even) {
+            background-color: #e6f2e6;
+        }
+        table[border="1"] tr:hover {
+            background-color: #d0e7d0;
+        }
+        /* Sidebar column */
+        table > tbody > tr > th:first-child {
+            vertical-align: top;
+            padding: 15px;
+            width: 200px;
+            border: none; /* no border for sidebar cell */
+        }
+    </style>
+</head>
+<body bgcolor="#ffefd5">
+
+{% include "heading.html" %}
+<font color="green">
+<table>
+    <tr>
+        <th>{% include "sideindex.html" %}</th>
+
+        <th width="1000">
+            <table align="center" border="1">
+                <tr>
+                    <th>agent id</th>
+                    <th>case id</th>
+                    <th> case name</th>
+                    <th>evidence</th>
+                    <th>status</th>
+                </tr>
+                {% for x in data %}
+                    <tr>
+                        <th>{{ x.agent_id }}</th>
+                        <th>{{ x.case_id }}</th>
+                        <th>{{ x.case_name }}</th>
+                        <th>{{ x.evidence }}</th>
+                        <th>{{ x.status }}</th>
+                    </tr>
+                {% endfor %}
+            </table>
+        </th>
+
+    </tr>
+</table>
+</font>
+</body>
+</html>

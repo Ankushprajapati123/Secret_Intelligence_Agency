@@ -1,0 +1,42 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body bgcolor="#ffefd5">
+{% include "heading.html" %}
+
+<table>
+<tr>
+    <th>{% include "sideindex.html" %}</th>
+    <th width="1000">
+   <table align="center" border="1">
+   <tr>
+      <th>Agent name</th>
+      <th>DOB</th>
+      <th>CNO</th>
+      <th>Qualification</th>
+      <th>Address</th>
+    </tr>
+
+{% for x in data %}
+    <tr>
+    <th><input type="text" value="{{ x.Agent_Name }}" name="name" readonly></th>
+    <th><input type="text" value="{{ x.Dob }}" name="dateofbirth" required></th>
+    <th><input type="number" value="{{ x.Contact_Number }}" name="cno" required></th>
+    <th><input type="text" value="{{ x.Qualification }}" name="quali" required></th>
+    <th><input type="text" value="{{ x.Address }}" name="adress" required></th>
+    </tr>
+    {% endfor %}
+
+</table>
+    </th>
+</tr>
+</table>
+
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Agent Login</title>
+    <style>
+        body {
+            background-color: #ffefd5;
+            font-family: Arial, sans-serif;
+            color: green;
+        }
+        .login-container {
+            width: 400px;
+            margin: 80px auto;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        table {
+            width: 100%;
+        }
+        th {
+            padding: 10px;
+            text-align: left;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 95%;
+            padding: 8px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            background-color: green;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: darkgreen;
+        }
+        .message {
+            text-align: center;
+            margin-top: 15px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    {% include "heading.html" %}
+    <div class="login-container">
+        <form action="/agentsign/" method="post">
+            {% csrf_token %}
+            <h2>Welcome to Agent</h2>
+            <table>
+                <tr>
+                    <th>Enter User Name:</th>
+                    <th><input type="text" name="name" required></th>
+                </tr>
+                <tr>
+                    <th>Enter Password:</th>
+                    <th><input type="password" name="password" required></th>
+                </tr>
+                <tr>
+                    <th colspan="2">
+                        <input type="submit" value="Login">
+                    </th>
+                </tr>
+            </table>
+        </form>
+        <div class="message">{{ message }}</div>
+    </div>
+</body>
+</html>

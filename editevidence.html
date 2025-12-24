@@ -1,0 +1,84 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Agent Info</title>
+    <style>
+        body {
+            background-color: #ffefd5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #2e8b57;
+        }
+
+        .container {
+            display: flex;
+            margin: 20px;
+        }
+
+        .sidebar {
+            width: 220px;
+            padding: 20px;
+            /* background-color: #fff8dc; */
+            /* border-right: 2px solid #90ee90; */
+        }
+
+        .content {
+            flex-grow: 1;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 128, 0, 0.2);
+            margin: 20px;
+        }
+
+        form table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            padding: 15px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        input[type="submit"] {
+            background-color: #2e8b57;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1e6b45;
+        }
+    </style>
+</head>
+<body>
+
+    {% include "heading.html" %}
+
+    <div class="container">
+        <div class="sidebar">
+            {% include "sideindex_ageent.html" %}
+        </div>
+
+        <div class="content">
+            <form method="post">
+                {% csrf_token %}
+                <table>
+                    <tr><th>{{ form }}</th></tr>
+                    <tr><th><input type="submit" value="Update"></th></tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

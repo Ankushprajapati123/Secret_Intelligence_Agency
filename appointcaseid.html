@@ -1,0 +1,88 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assign Case</title>
+    <style>
+        body {
+            background-color: #ffefd5;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: green;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td[width="200"] {
+            vertical-align: top;
+            padding: 15px;
+            border: none;
+        }
+        td[width="1000"] table {
+            width: 100%;
+            max-width: 700px;
+            margin: 30px auto;
+            background-color: #f0fff0;
+            border: 1px solid #006400;
+            border-spacing: 10px;
+        }
+        td[width="1000"] table th {
+            background-color: #b2d8b2;
+            padding: 12px;
+            font-size: 1em;
+            text-align: left;
+        }
+        td[width="1000"] table input[type="text"],
+        td[width="1000"] table input[type="number"] {
+            width: 95%;
+            padding: 8px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+        td[width="1000"] table input[type="submit"] {
+            padding: 10px 25px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        td[width="1000"] table input[type="submit"]:hover {
+            background-color: darkgreen;
+        }
+        h1 {
+            text-align: center;
+            color: red;
+        }
+    </style>
+</head>
+
+<body bgcolor="#ffefd5">
+{% include "heading.html" %}
+<font color="green">
+    <table>
+        <tr>
+            <form action="/savecasedetails/" method="post">
+                {% csrf_token %}
+                <td width="200">{% include "sideindex.html" %}</td>
+                <td width="1000">
+                    <table align="center" border="1">
+                        <tr><th>agent id</th><th><input type="number" name="agent id"></th></tr>
+                        <tr><th>case id</th><th><input type="number" name="case id"></th></tr>
+                        <tr><th>case name</th><th><input type="text" name="name"></th></tr>
+                        <tr><th>evidence</th><th><input type="text" name="evidence"></th></tr>
+                        <tr><th>status</th><th><input type="text" name="status"></th></tr>
+                        <tr><th colspan="5"><input type="submit" value="assign"></th></tr>
+                    </table>
+                </td>
+                <h1>{{ message }}</h1>
+            </form>
+        </tr>
+    </table>
+</font>
+</body>
+</html>

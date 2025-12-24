@@ -1,0 +1,114 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Agent Registration</title>
+    <style>
+        body {
+            background-color: #ffefd5;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: green;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 30px;
+            margin: 30px auto;
+            border: 2px solid green;
+            border-radius: 10px;
+            width: 80%;
+        }
+
+        .form-container th, .form-container td {
+            padding: 12px;
+            font-size: 16px;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="date"],
+        .form-container input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-container input[type="submit"] {
+            background-color: green;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: darkgreen;
+        }
+
+        h1 {
+            color: darkgreen;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+{% include "heading.html" %}
+
+<form action="/agentregister/" method="post">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <th>{% include "sideindex.html" %}</th>
+            <td>
+                <table class="form-container" align="center">
+                    <tr>
+                        <th>Agent Name</th>
+                        <td><input type="text" required name="name"></td>
+                    </tr>
+                    <tr>
+                        <th>Password</th>
+                        <td><input type="text" required name="password"></td>
+                    </tr>
+                    <tr>
+                        <th>Date of Birth</th>
+                        <td><input type="date" required name="dateofbirth"></td>
+                    </tr>
+                    <tr>
+                        <th>Contact Number</th>
+                        <td><input type="number" required name="cno"></td>
+                    </tr>
+                    <tr>
+                        <th>Qualification</th>
+                        <td><input type="text" required name="quali"></td>
+                    </tr>
+                    <tr>
+                        <th>Address</th>
+                        <td><input type="text" required name="adress"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <input type="submit" value="Create">
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<h1>{{ message }}</h1>
+
+</body>
+</html>

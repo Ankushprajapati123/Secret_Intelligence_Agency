@@ -1,0 +1,46 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<body bgcolor="#ffefd5">
+{% include "heading.html" %}
+<font color="green">
+<table>
+        <tr>
+            <form action="/clerk_applicant/" method="post">
+        {% csrf_token %}
+            <td width="200">{% include "sideindex.html" %}</td>
+            <td width="1000"><table align="center" border="1">
+                <tr><th>JOB_TITLE</th>
+                 <th>First Name</th>
+                 <th>Last Name</th>
+                 <th>Date of Birth</th>
+                 <th>Qualification</th>
+                <th>percentage</th>
+                 <th>Institute</th>
+                <th>Experience</th>
+                <th>Contact Number</th></tr>
+                {% for x in data %}
+                    <tr>
+                 <th>{{ x.JOB_TITLE }}</th>
+                 <th>{{ x.First_Name }}</th>
+                 <th>{{x.Last_Name}}</th>
+                 <th>{{x.Dob}}</th>
+                 <th>{{x.Qualification}}</th>
+                 <th>{{ x.percentage}}</th>
+                 <th>{{ x.Institute}}</th>
+                 <th>{{ x.Experience}}</th>
+                 <th>{{ x.Contact_Number}}</th>
+                    </tr>
+                {% endfor %}
+
+            </table>
+             </td>
+            </form>
+        </tr>
+
+</table>
+</font>
+</body>
+</html>

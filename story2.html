@@ -1,0 +1,65 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Story Paragraph</title>
+    <style>
+        body {
+            background-color: #ffefd5;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            padding: 20px;
+            color: green;
+        }
+
+        .sidebar {
+            width: 200px;
+            margin-right: 20px;
+        }
+
+        .content-box {
+            width: 900px;
+            background-color: white;
+            padding: 25px;
+            border: 2px solid green;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 128, 0, 0.2);
+        }
+
+        .content-box p {
+            line-height: 1.6;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    {% include "heading.html" %}
+    {% include "Stories.html" %}
+
+    <div class="container">
+        <div class="sidebar">
+            {% include "homeindex.html" %}
+        </div>
+
+        <div class="content-box">
+            <p>
+                While peer-to-peer networks are mainly used to locate unique resources across the Internet, new interesting
+                deployment scenarios are emerging. Particularly, some applications (e.g., VoIP) are proposing the creation of overlays
+                for the localization of services based on equivalent servants (e.g., voice relays). This paper explores the possible
+                overlay architectures that can be adopted to provide such services, showing how an unstructured solution based on a
+                scale-free overlay topology is an effective option to deploy in this context. Consequently, we propose EQUATOR
+                (Equivalent servant locator), an unstructured overlay implementing the above-mentioned operating principles, based on
+                an overlay construction algorithm that well approximates an ideal scale-free construction model.
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

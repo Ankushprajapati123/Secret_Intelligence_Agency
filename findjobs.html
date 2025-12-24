@@ -1,0 +1,108 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recruitment Page</title>
+    <style>
+        body {
+            background-color: #ffefd5;
+            font-family: Arial, sans-serif;
+            color: green;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            padding: 90px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .sidebar {
+            margin-right: 20px;
+        }
+
+        .main-content {
+            flex-grow: 1;
+        }
+
+        .job-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background-color: #fff;
+            border: 2px solid green;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 128, 0, 0.2);
+        }
+
+        .job-table th {
+            background-color: #90ee90;
+            color: darkgreen;
+            padding: 15px 20px;
+            text-align: left;
+            font-size: 18px;
+        }
+
+        .job-table td {
+            padding: 15px 20px;
+            font-size: 16px;
+            border-top: 1px solid #ddd;
+            background-color: #f9fff9;
+        }
+
+        .job-table tr:nth-child(even) td {
+            background-color: #f0fff0;
+        }
+
+        .job-table a {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: white;
+            background-color: #007bff;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .job-table a:hover {
+            background-color: #0056b3;
+        }
+
+        .job-table td a.apply {
+            background-color: #28a745;
+        }
+
+        .job-table td a.apply:hover {
+            background-color: #1e7e34;
+        }
+    </style>
+</head>
+<body>
+    {% include "heading.html" %}
+
+    <div class="container">
+        <div class="sidebar">
+            {% include "homeindex.html" %}
+        </div>
+        <div class="main-content">
+            <table class="job-table">
+                <tr>
+                    <th>1. Recruitment for Agents</th>
+                    <td><a href="/viewjobs/">View</a></td>
+                    <td><a href="/apply_jobs/" class="apply">Apply</a></td>
+                </tr>
+                <tr>
+                    <th>2. Recruitment for Office Clerks</th>
+                    <td><a href="/viewclerkjobs/">View</a></td>
+                    <td><a href="/applyclerkjobs/" class="apply">Apply</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

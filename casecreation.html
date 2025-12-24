@@ -1,0 +1,94 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Case Creation</title>
+    <style>
+        body {
+            background-color: #ffefd5;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: green;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table table {
+            width: 80%;
+            margin: 40px auto;
+            border: 2px solid green;
+            border-radius: 10px;
+            background-color: #f5fff5;
+            padding: 20px;
+        }
+        th {
+            padding: 10px;
+            font-size: 16px;
+            text-align: left;
+        }
+        input[type="text"], input[type="date"] {
+            width: 95%;
+            padding: 8px;
+            border: 1px solid #888;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            padding: 10px 30px;
+            background-color: green;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: darkgreen;
+        }
+        h1 {
+            color: red;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<font color="green">
+    {% include "heading.html" %}
+    <form action="/create_case/" method="post">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th>{% include "sideindex_defence.html" %}</th>
+                <th width="1000">
+                    <table align="center">
+                        <th colspan="2">CASE CREATION</th>
+                        <tr>
+                            <th>case name</th>
+                            <th><input type="text" required name="case name"></th>
+                        </tr>
+                        <tr>
+                            <th>case details</th>
+                            <th><input type="text" required name="case details"></th>
+                        </tr>
+                        <tr>
+                            <th>date of creation</th>
+                            <th><input type="date" required name="date"></th>
+                        </tr>
+                        <tr>
+                            <th>evidence provided</th>
+                            <th><input type="text" required name="evidence"></th>
+                        </tr>
+                        <tr>
+                            <th colspan="2"><input type="submit" value="create"></th>
+                        </tr>
+                    </table>
+                </th>
+            </tr>
+        </table>
+        <h1 align="center">{{ message }}</h1>
+    </form>
+</font>
+</body>
+</html>

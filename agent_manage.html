@@ -1,0 +1,71 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Agent Management</title>
+    <style>
+        body {
+            background-color: #ffefd5;
+            font-family: Arial, sans-serif;
+            color: green;
+            margin: 0;
+            padding: 0;
+        }
+        table.outer-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table.inner-table {
+            margin: 40px auto;
+            width: 500px;
+            border-collapse: separate;
+            border-spacing: 0 30px; /* vertical spacing between rows */
+        }
+        table.inner-table th {
+            background-color: #e0f2e9;
+            height: 50px;
+            padding-left: 15px;
+            font-size: 20px;
+            text-align: left;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        table.inner-table th a {
+            color: green;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        table.inner-table th a:hover {
+            color: darkgreen;
+            text-decoration: underline;
+        }
+        .sidebar-cell {
+            vertical-align: top;
+            width: 200px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    {% include "heading.html" %}
+    <table class="outer-table">
+        <tr>
+            <th class="sidebar-cell">{% include "sideindex.html" %}</th>
+            <th>
+                <table class="inner-table">
+                    <tr>
+                        <th><a href="/createagent/">Create Agent</a></th>
+                    </tr>
+                    <tr>
+                        <th><a href="/editagent/">Update Agent</a></th>
+                    </tr>
+                    <tr>
+                        <th><a href="/viewallagents/">View Agent</a></th>
+                    </tr>
+                </table>
+            </th>
+        </tr>
+    </table>
+</body>
+</html>

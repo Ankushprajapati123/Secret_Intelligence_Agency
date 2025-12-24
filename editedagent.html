@@ -1,0 +1,87 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Form</title>
+    <style>
+        body {
+            background-color: #ffefd5;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #004d00;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        .form-container {
+            width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border: 2px solid #008000;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 128, 0, 0.2);
+        }
+
+        .form-container table {
+            width: 100%;
+        }
+
+        .form-container th {
+            text-align: center;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #008000;
+            color: white;
+            font-size: 16px;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #006400;
+        }
+
+        .side-index {
+            vertical-align: top;
+            width: 200px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    {% include "heading.html" %}
+
+    <table>
+        <tr>
+            <th class="side-index">
+                {% include "sideindex.html" %}
+            </th>
+            <th>
+                <div class="form-container">
+                    <form method="post">
+                        {% csrf_token %}
+                        <table>
+                            <tr>
+                                <th>{{ form }}</th>
+                            </tr>
+                            <tr>
+                                <th><input type="submit" value="Update"></th>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </th>
+        </tr>
+    </table>
+</body>
+</html>
